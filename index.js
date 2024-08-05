@@ -15,9 +15,7 @@ app.use(cors());
 async function main() {
     await mongoose.connect('mongodb+srv://123uditaagarg:2O7LYjaTa10VqoA1@epicure.ebwnbzk.mongodb.net/epicure?retryWrites=true&w=majority&appName=epicure');
     
-    app.get('/',(req,res)=>{
-        res.send('Epicure Recipe app server')
-    })
+   
     
 }
 
@@ -30,6 +28,10 @@ const ItemRoutes = require("./src/routes/ItemRoute");
 const CategoryRoutes = require("./src/routes/categoryRoute")
 app.use('/api',ItemRoutes)
 app.use('/api',CategoryRoutes)
+
+app.get('/',(req,res)=>{
+    res.send('Epicure Recipe app server')
+})
 
 app.listen(port,()=>{
     console.log(`listening on port ${port}`)
